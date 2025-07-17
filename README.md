@@ -5,6 +5,7 @@ A deep learning-based image classifier to identify Indian currency notes using t
 ---
 ## Demo Video 
 
+https://github.com/user-attachments/assets/90639aee-b63e-4051-8244-b8508c3ffe2d
 
 ---
 
