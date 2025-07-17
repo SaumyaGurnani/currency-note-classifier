@@ -5,6 +5,18 @@ import torch.nn as nn
 import torchvision.transforms as transforms
 from torchvision import models
 
+import os
+import gdown
+
+model_path = "currency_classifier.pth"
+file_id = "1Y8B66PtBs3E27Y4SfjXe6Zz27nC-zUeL"
+gdown_url = f"https://drive.google.com/uc?id={file_id}"
+
+# 🔽 Download model from Google Drive if not present
+if not os.path.exists(model_path):
+    with st.spinner("Downloading model weights..."):
+        gdown.download(gdown_url, model_path, quiet=False)
+
 # ---- Load Model ----
 class_names = ['10', '100', '20', '200', '2000', '50', '500']  # Update as per your dataset
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -27,7 +39,7 @@ model.fc = nn.Sequential(
     nn.Linear(64, len(class_names))
 )
 
-model.load_state_dict(torch.load("currency_classifier.pth", map_location=device))
+model.load_state_dict(torch.load(model_path, map_location=device))
 model.to(device)
 model.eval()
 
