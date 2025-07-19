@@ -59,15 +59,4 @@ The trained model is integrated into an interactive web app using **Streamlit**.
 
 - Upload an image of a currency note
 - Get the predicted denomination
-- Download model dynamically from Google Drive to reduce repo size
 
-
----
-
-##  Run Locally
-
-```bash
-git clone https://github.com/your-username/currency-classifier
-cd currency-classifier
-pip install -r requirements.txt
-streamlit run app.py
